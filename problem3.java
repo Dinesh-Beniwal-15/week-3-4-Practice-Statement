@@ -1,22 +1,29 @@
-import java.util.*;
-
-public class Problem5 {
+public class Problem6 {
 
     public static void main(String[] args) {
 
-        String[] arr = {"accA", "accB", "accB", "accC"};
+        int[] arr = {10, 25, 50, 100};
+        int target = 30;
 
-        // Linear search
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].equals("accB")) {
-                System.out.println("Found at index " + i);
+        int low = 0, high = arr.length - 1;
+        int floor = -1, ceil = -1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+            if (arr[mid] == target) {
+                floor = ceil = arr[mid];
                 break;
+            } else if (arr[mid] < target) {
+                floor = arr[mid];
+                low = mid + 1;
+            } else {
+                ceil = arr[mid];
+                high = mid - 1;
             }
         }
 
-        // Binary search
-        Arrays.sort(arr);
-        int index = Arrays.binarySearch(arr, "accB");
-        System.out.println("Binary index: " + index);
+        System.out.println("Floor: " + floor);
+        System.out.println("Ceiling: " + ceil);
     }
 }
