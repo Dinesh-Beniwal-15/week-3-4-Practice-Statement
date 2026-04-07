@@ -8,7 +8,7 @@ public class Problem5 {
 
         // Linear search
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i].equals("accB")) {
+            if (arr[i].equals("accB")) { 
                 System.out.println("Found at index " + i);
                 break;
             }
